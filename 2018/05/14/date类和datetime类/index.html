@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="datetime," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="整理：QT 边学习边整理，内容来源于互联网，如有疑问请QQ 604615850联系，侵删。 前言在开发工作中，我们经常需要用到日期与时间，如：  作为日志信息的内容输出 计算某个功能的执行时间 用日期命名一个日志文件的名称 记录或展示某文章的发布或修改时间 其他  Python中提供了多个用于对日期和时间进行操作的内置模块：time模块、datetime模块和calendar模块。其中time模块">
+<meta name="keywords" content="datetime">
+<meta property="og:type" content="article">
+<meta property="og:title" content="date类和datetime类">
+<meta property="og:url" content="http://yoursite.com/2018/05/14/date类和datetime类/index.html">
+<meta property="og:site_name" content="QT&#39;s blog">
+<meta property="og:description" content="整理：QT 边学习边整理，内容来源于互联网，如有疑问请QQ 604615850联系，侵删。 前言在开发工作中，我们经常需要用到日期与时间，如：  作为日志信息的内容输出 计算某个功能的执行时间 用日期命名一个日志文件的名称 记录或展示某文章的发布或修改时间 其他  Python中提供了多个用于对日期和时间进行操作的内置模块：time模块、datetime模块和calendar模块。其中time模块">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/05/14/date类和datetime类/2017021616254730.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/14/date类和datetime类/2017021616254731.png">
+<meta property="og:updated_time" content="2018-05-14T08:06:20.397Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="date类和datetime类">
+<meta name="twitter:description" content="整理：QT 边学习边整理，内容来源于互联网，如有疑问请QQ 604615850联系，侵删。 前言在开发工作中，我们经常需要用到日期与时间，如：  作为日志信息的内容输出 计算某个功能的执行时间 用日期命名一个日志文件的名称 记录或展示某文章的发布或修改时间 其他  Python中提供了多个用于对日期和时间进行操作的内置模块：time模块、datetime模块和calendar模块。其中time模块">
+<meta name="twitter:image" content="http://yoursite.com/2018/05/14/date类和datetime类/2017021616254730.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/14/date类和datetime类/"/>
+
+
+
+
+
+  <title>date类和datetime类 | QT's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">QT's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/14/date类和datetime类/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="QT">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QT's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">date类和datetime类</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-14T00:16:03+08:00">
+                2018-05-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python模块/" itemprop="url" rel="index">
+                    <span itemprop="name">python模块</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><em>整理：QT</em></p>
+<p><em>边学习边整理，内容来源于互联网，如有疑问请QQ 604615850联系，侵删。</em></p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h3><p>在开发工作中，我们经常需要用到日期与时间，如：</p>
+<ul>
+<li>作为日志信息的内容输出</li>
+<li>计算某个功能的执行时间</li>
+<li>用日期命名一个日志文件的名称</li>
+<li>记录或展示某文章的发布或修改时间</li>
+<li>其他</li>
+</ul>
+<p>Python中提供了多个用于对日期和时间进行操作的内置模块：<code>time</code>模块、<code>datetime</code>模块和<code>calendar</code>模块。其中time模块是通过调用C库实现的，所以有些方法在某些平台上可能无法调用，但是其提供的大部分接口与C标准库time.h基本一致。<code>time</code>模块相比，<code>datetime</code>模块提供的接口更直观、易用，功能也更加强大。</p>
+<h3 id="一、相关术语的解释"><a href="#一、相关术语的解释" class="headerlink" title="一、相关术语的解释"></a><strong>一、相关术语的解释</strong></h3><ul>
+<li>UTC time Coordinated Universal Time，世界协调时，又称 格林尼治天文时间（GMT）、世界标准时间。与UTC time对应的是各个时区的local time，东N区的时间比UTC时间早N个小时，因此UTC time + N小时 即为东N区的本地时间；而西N区时间比UTC时间晚N个小时，即 UTC time - N小时 即为西N区的本地时间； 中国在东8区，因此比UTC时间早8小时，可以以UTC+8进行表示。</li>
+<li>epoch time 表示时间开始的起点；它是一个特定的时间，不同平台上这个时间点的值不太相同，对于Unix而言，epoch time为 1970-01-01 00:00:00 UTC。</li>
+<li>timestamp（时间戳） 也称为Unix时间 或 POSIX时间；它是一种时间表示方式，表示从格林尼治时间1970年1月1日0时0分0秒开始到现在所经过的毫秒数，其值为float类型。 但是有些编程语言的相关方法返回的是秒数（Python就是这样），这个需要看方法的文档说明。需要说明的是时间戳是个差值，其值与时区无关。</li>
+</ul>
+<h3 id="二、时间的表现形式"><a href="#二、时间的表现形式" class="headerlink" title="二、时间的表现形式"></a><strong>二、时间的表现形式</strong></h3><p>常见的时间表示形式为：</p>
+<ul>
+<li>时间戳</li>
+<li>格式化的时间字符串</li>
+</ul>
+<p>Python中还有其它的时间表示形式：</p>
+<ul>
+<li><code>time</code>模块的<code>time.struct_time</code></li>
+<li><code>datetime</code>模块的<code>datetime</code>类</li>
+</ul>
+<p>这里简单说下<code>time.struct_time</code>，包含如下属性：</p>
+<table>
+<thead>
+<tr>
+<th>下标/索引</th>
+<th>属性名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td><code>tm_year</code></td>
+<td>年份，如 2017</td>
+</tr>
+<tr>
+<td>1</td>
+<td><code>tm_mon</code></td>
+<td>月份，取值范围为[1, 12]</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>tm_mday</code></td>
+<td>一个月中的第几天，取值范围为[1-31]</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>tm_hour</code></td>
+<td>小时， 取值范围为[0-23]</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>tm_min</code></td>
+<td>分钟，取值范围为[0, 59]</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>tm_sec</code></td>
+<td>秒，取值范围为[0, 61]</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>tm_wday</code></td>
+<td>一个星期中的第几天，取值范围为[0-6]，0表示星期一</td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>tm_yday</code></td>
+<td>一年中的第几天，取值范围为[1, 366]</td>
+</tr>
+<tr>
+<td>8</td>
+<td><code>tm_isdst</code></td>
+<td>是否为夏令时，可取值为：0 , 1 或 -1</td>
+</tr>
+</tbody>
+</table>
+<p>属性值的获取方式有两种：</p>
+<ul>
+<li>可以把它当做一种特殊的有序不可变序列通过 下标/索引 获取各个元素的值，如t[0]</li>
+<li>也可以通过 .属性名 的方式来获取各个元素的值，如<code>t.tm_year</code>。</li>
+</ul>
+<p>需要说明的是<code>struct_time</code>实例的各个属性都是只读的，不可修改。</p>
+<h3 id="三、time模块"><a href="#三、time模块" class="headerlink" title="三、time模块"></a><strong>三、time模块</strong></h3><p><code>time</code>模块主要用于时间访问和转换，这个模块提供了各种与时间相关的函数。</p>
+<h4 id="1-函数列表"><a href="#1-函数列表" class="headerlink" title="1. 函数列表"></a><strong>1. 函数列表</strong></h4><table>
+<thead>
+<tr>
+<th>方法/属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>time.altzone</code></td>
+<td>返回与utc时间的时间差，以秒为单位（西区该值为正，东区该值为负）。其表示的是本地DST 时区的偏移量，只有daylight非0时才使用。</td>
+</tr>
+<tr>
+<td><code>time.clock()</code></td>
+<td>返回当前进程所消耗的处理器运行时间秒数（不包括sleep时间），值为小数；该方法Python3.3改成了<code>time.process_time()</code></td>
+</tr>
+<tr>
+<td><code>time.asctime([t])</code></td>
+<td>将一个<code>tuple</code>或<code>struct_time</code>形式的时间（可以通过<code>gmtime()</code>和<code>localtime()</code>方法获取）转换为一个24个字符的时间字符串，格式为: “Fri Aug 19 11:14:16 2016”。如果参数t未提供，则取<code>localtime()</code>的返回值作为参数。</td>
+</tr>
+<tr>
+<td><code>time.ctime([secs])</code></td>
+<td>功能同上，将一个秒数时间戳表示的时间转换为一个表示当前本地时间的字符串。如果参数secs没有提供或值为<code>None</code>，则取<code>time()</code>方法的返回值作为默认值。<code>ctime(secs)</code>等价于<code>asctime(localtime(secs))</code></td>
+</tr>
+<tr>
+<td><code>time.time()</code></td>
+<td>返回时间戳（自1970-1-1 0:00:00 至今所经历的秒数）</td>
+</tr>
+<tr>
+<td><code>time.localtime([secs])</code></td>
+<td>返回以指定时间戳对应的本地时间的 <code>struct_time</code>对象格式（可以通过下标，也可以通过 .属性名 的方式来引用内部属性）</td>
+</tr>
+<tr>
+<td><code>time.localtime(time.time() + n*3600)</code></td>
+<td>返回n个小时后本地时间的 <code>struct_time</code>对象格式（可以用来实现类似<code>crontab</code>的功能）</td>
+</tr>
+<tr>
+<td><code>time.gmtime([secs])</code></td>
+<td>返回指定时间戳对应的utc时间的 <code>struct_time</code>对象格式</td>
+</tr>
+<tr>
+<td><code>time.gmtime(time.time() + n*3600)</code></td>
+<td>返回n个小时后utc时间的 <code>struct_time</code>对象（可以通过 .属性名 的方式来引用内部属性）格式</td>
+</tr>
+<tr>
+<td><code>time.strptime(time_str, time_format_str)</code></td>
+<td>将时间字符串转换为<code>struct_time</code>时间对象，如：<code>time.strptime(&#39;2017-01-13 17:07&#39;, &#39;%Y-%m-%d %H:%M&#39;)</code></td>
+</tr>
+<tr>
+<td><code>time.mktime(struct_time_instance)</code></td>
+<td>将<code>struct_time</code>对象实例转换成时间戳</td>
+</tr>
+<tr>
+<td><code>time.strftime(time_format_str, struct_time_instance)</code></td>
+<td>将<code>struct_time</code>对象实例转换成字符串</td>
+</tr>
+</tbody>
+</table>
+<p><strong>获取时间戳格式的时间</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>time.time()</span><br><span class="line"><span class="number">1486188022.862</span></span><br></pre></td></tr></table></figure>
+<p><strong>获取struct_time格式的时间</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>time.localtime()</span><br><span class="line">time.struct_time(tm_year=<span class="number">2018</span>, tm_mon=<span class="number">4</span>, tm_mday=<span class="number">29</span>, tm_hour=<span class="number">16</span>, tm_min=<span class="number">7</span>, tm_sec=<span class="number">36</span>, tm_wday=<span class="number">6</span>, tm_yday=<span class="number">119</span>, tm_isdst=<span class="number">0</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>time.gmtime()<span class="comment">#返回指定时间戳对应的utc时间的 struct_time对象格式</span></span><br><span class="line">time.struct_time(tm_year=<span class="number">2018</span>, tm_mon=<span class="number">4</span>, tm_mday=<span class="number">29</span>, tm_hour=<span class="number">8</span>, tm_min=<span class="number">8</span>, tm_sec=<span class="number">37</span>, tm_wday=<span class="number">6</span>, tm_yday=<span class="number">119</span>, tm_isdst=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>获取字符串格式的时间</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>time.ctime()</span><br><span class="line"><span class="string">'Sun Apr 29 16:10:07 2018'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>time.asctime()</span><br><span class="line"><span class="string">'Sun Apr 29 16:10:13 2018'</span></span><br></pre></td></tr></table></figure>
+<p><strong>时间戳格式转struct_time格式时间</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>t1 = time.time()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(t1)</span><br><span class="line"><span class="number">1524989702.20803</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t2 = time.localtime(t1)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(t2)</span><br><span class="line">time.struct_time(tm_year=<span class="number">2018</span>, tm_mon=<span class="number">4</span>, tm_mday=<span class="number">29</span>, tm_hour=<span class="number">16</span>, tm_min=<span class="number">15</span>, tm_sec=<span class="number">2</span>, tm_wday=<span class="number">6</span>, tm_yday=<span class="number">119</span>, tm_isdst=<span class="number">0</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t3 = time.gmtime(t1)<span class="comment">#返回指定时间戳对应的utc时间的 struct_time对象格式</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(t3)</span><br><span class="line">time.struct_time(tm_year=<span class="number">2018</span>, tm_mon=<span class="number">4</span>, tm_mday=<span class="number">29</span>, tm_hour=<span class="number">8</span>, tm_min=<span class="number">15</span>, tm_sec=<span class="number">2</span>, tm_wday=<span class="number">6</span>, tm_yday=<span class="number">119</span>, tm_isdst=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="2-时间格式转换"><a href="#2-时间格式转换" class="headerlink" title="2. 时间格式转换"></a><strong>2. 时间格式转换</strong></h4><p>时间戳格式的时间 与 字符串格式的时间 虽然可以通过ctime([secs])方法进行转换，但是字符串格式不太适应中国国情。因此，整体而言，它们 不能直接进行转换，需要通过struct_time作为中介，转换关系如下：</p>
+<p><img src="/2018/05/14/date类和datetime类/2017021616254730.png" alt="2017021616254730"></p>
+<p>说明：上面的 ‘%H:%M:%S’ 可以直接用 ‘%X’ 代替。</p>
+<h3 id="四、-datetime模块"><a href="#四、-datetime模块" class="headerlink" title="四、 datetime模块"></a><strong>四、 <code>datetime</code>模块</strong></h3><p><code>datetime</code>模块提供了处理日期和时间的类，既有简单的方式，又有复杂的方式。它虽然支持日期和时间算法，但其实现的重点是为输出格式化和操作提供高效的属性提取功能。</p>
+<h4 id="1-datetime模块中定义的类"><a href="#1-datetime模块中定义的类" class="headerlink" title="1. datetime模块中定义的类"></a><strong>1. datetime模块中定义的类</strong></h4><p><code>datetime</code>模块定义了以下几个类：</p>
+<table>
+<thead>
+<tr>
+<th>类名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>datetime.date</code></td>
+<td>表示日期，常用的属性有：year, month和day</td>
+</tr>
+<tr>
+<td><code>datetime.time</code></td>
+<td>表示时间，常用属性有：hour, minute, second, microsecond</td>
+</tr>
+<tr>
+<td><code>datetime.datetime</code></td>
+<td>表示日期时间</td>
+</tr>
+<tr>
+<td><code>datetime.timedelta</code></td>
+<td>表示两个<code>date</code>、<code>time</code>、<code>datetime</code>实例之间的时间间隔，分辨率（最小单位）可达到微秒</td>
+</tr>
+<tr>
+<td><code>datetime.tzinfo</code></td>
+<td>时区相关信息对象的抽象基类。它们由<code>datetime</code>和<code>time</code>类使用，以提供自定义时间的而调整。</td>
+</tr>
+<tr>
+<td><code>datetime.timezone</code></td>
+<td>Python 3.2中新增的功能，实现<code>tzinfo</code>抽象基类的类，表示与UTC的固定偏移量</td>
+</tr>
+</tbody>
+</table>
+<p>需要说明的是：这些类的对象都是不可变的。</p>
+<p>类之间的关系：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">object</span><br><span class="line">timedelte</span><br><span class="line">tzinfo</span><br><span class="line">timezone</span><br><span class="line">time</span><br><span class="line">date</span><br><span class="line">datetime</span><br></pre></td></tr></table></figure>
+<h4 id="2-datetime模块中定义的常量"><a href="#2-datetime模块中定义的常量" class="headerlink" title="2. datetime模块中定义的常量"></a><strong>2. <code>datetime</code>模块中定义的常量</strong></h4><table>
+<thead>
+<tr>
+<th>常量名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>datetime.MINYEAR</code></td>
+<td><code>datetime.date</code>或<code>datetime.datetime</code>对象所允许的年份的最小值，值为1</td>
+</tr>
+<tr>
+<td><code>datetime.MAXYEAR</code></td>
+<td><code>datetime.date</code>或<code>datetime.datetime</code>对象所允许的年份的最大值，只为9999</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3-datetime-date类"><a href="#3-datetime-date类" class="headerlink" title="3. datetime.date类"></a><strong>3. <code>datetime.date</code>类</strong></h4><p><code>datetime.date</code>类的定义：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date(year, month, day) --&gt; date object</span><br></pre></td></tr></table></figure>
+<p>year, month 和 day都是是必须参数，各参数的取值范围为：</p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>取值范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>year</code></td>
+<td>[MINYEAR, MAXYEAR]</td>
+</tr>
+<tr>
+<td><code>month</code></td>
+<td>[1, 12]</td>
+</tr>
+<tr>
+<td><code>day</code></td>
+<td>[1, 指定年份的月份中的天数]</td>
+</tr>
+</tbody>
+</table>
+<p>类方法和属性</p>
+<table>
+<thead>
+<tr>
+<th>类方法/属性名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>date.max</code></td>
+<td>date对象所能表示的最大日期：9999-12-31</td>
+</tr>
+<tr>
+<td><code>date.min</code></td>
+<td>date对象所能表示的最小日志：00001-01-01</td>
+</tr>
+<tr>
+<td><code>date.resoluation</code></td>
+<td>date对象表示的日期的最小单位：天</td>
+</tr>
+<tr>
+<td><code>date.today()</code></td>
+<td>返回一个表示当前本地日期的date对象</td>
+</tr>
+<tr>
+<td><code>date.fromtimestamp(timestamp)</code></td>
+<td>根据跟定的时间戳，返回一个date对象</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> time</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> datetime <span class="keyword">import</span> date</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>date.max</span><br><span class="line">datetime.date(<span class="number">9999</span>, <span class="number">12</span>, <span class="number">31</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>date.min</span><br><span class="line">datetime.date(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>date.resolution</span><br><span class="line">datetime.timedelta(<span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>date.today()</span><br><span class="line">datetime.date(<span class="number">2018</span>, <span class="number">4</span>, <span class="number">29</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>date.fromtimestamp(time.time())</span><br><span class="line">datetime.date(<span class="number">2018</span>, <span class="number">4</span>, <span class="number">29</span>)</span><br></pre></td></tr></table></figure>
+<p>对象方法和属性</p>
+<table>
+<thead>
+<tr>
+<th>对象方法/属性名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>d.year</code></td>
+<td>年</td>
+</tr>
+<tr>
+<td><code>d.month</code></td>
+<td>月</td>
+</tr>
+<tr>
+<td><code>d.day</code></td>
+<td>日</td>
+</tr>
+<tr>
+<td><code>d.replace(year[, month[, day]])</code></td>
+<td>生成并返回一个新的日期对象，原日期对象不变</td>
+</tr>
+<tr>
+<td><code>d.timetuple()</code></td>
+<td>返回日期对应的<code>time.struct_time</code>对象</td>
+</tr>
+<tr>
+<td><code>d.toordinal()</code></td>
+<td>返回日期是是自 0001-01-01 开始的第多少天</td>
+</tr>
+<tr>
+<td><code>d.weekday()</code></td>
+<td>返回日期是星期几，[0, 6]，0表示星期一</td>
+</tr>
+<tr>
+<td><code>d.isoweekday()</code></td>
+<td>返回日期是星期几，[1, 7], 1表示星期一</td>
+</tr>
+<tr>
+<td><code>d.isocalendar()</code></td>
+<td>返回一个元组，格式为：<code>(year, week_number, isoweekday)</code></td>
+</tr>
+<tr>
+<td><code>d.isoformat()</code></td>
+<td>返回<code>‘YYYY-MM-DD&#39;</code>格式的日期字符串</td>
+</tr>
+<tr>
+<td><code>d.strftime(format)</code></td>
+<td>返回指定格式的日期字符串，与<code>time</code>模块的<code>strftime(format, struct_time)</code>功能相同</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>d = date.today()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.year</span><br><span class="line"><span class="number">2018</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.month</span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.day</span><br><span class="line"><span class="number">29</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.replace(<span class="number">2015</span>)</span><br><span class="line">datetime.date(<span class="number">2015</span>, <span class="number">4</span>, <span class="number">29</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.replace(<span class="number">2015</span>,<span class="number">3</span>,<span class="number">3</span>)</span><br><span class="line">datetime.date(<span class="number">2015</span>, <span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.timetuple()</span><br><span class="line">time.struct_time(tm_year=<span class="number">2018</span>, tm_mon=<span class="number">4</span>, tm_mday=<span class="number">29</span>, tm_hour=<span class="number">0</span>, tm_min=<span class="number">0</span>, tm_sec=<span class="number">0</span>, tm_wday=<span class="number">6</span>, tm_yday=<span class="number">119</span>, tm_isdst=<span class="number">-1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.toordinal()</span><br><span class="line"><span class="number">736813</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.weekday()</span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.isoweekday()</span><br><span class="line"><span class="number">7</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.isocalendar()</span><br><span class="line">(<span class="number">2018</span>, <span class="number">17</span>, <span class="number">7</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d</span><br><span class="line">datetime.date(<span class="number">2018</span>, <span class="number">4</span>, <span class="number">29</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.isoformat()</span><br><span class="line"><span class="string">'2018-04-29'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.ctime()</span><br><span class="line"><span class="string">'Sun Apr 29 00:00:00 2018'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d.strftime(<span class="string">'%Y/%m/%d'</span>)</span><br><span class="line"><span class="string">'2018/04/29'</span></span><br></pre></td></tr></table></figure>
+<h4 id="4-datetime-time类"><a href="#4-datetime-time类" class="headerlink" title="4. datetime.time类"></a><strong>4. <code>datetime.time</code>类</strong></h4><p>time类的定义:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">time([hour[, minute[, second[, microsecond[, tzinfo]]]]]) --&gt; a time object</span><br></pre></td></tr></table></figure>
+<p>hour为必须参数，其他为可选参数。各参数的取值范围为：</p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>取值范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hour</td>
+<td>[0, 23]</td>
+</tr>
+<tr>
+<td>minute</td>
+<td>[0, 59]</td>
+</tr>
+<tr>
+<td>second</td>
+<td>[0, 59]</td>
+</tr>
+<tr>
+<td>microsecond</td>
+<td>[0, 1000000]</td>
+</tr>
+<tr>
+<td>tzinfo</td>
+<td>tzinfo的子类对象，如timezone类的实例</td>
+</tr>
+</tbody>
+</table>
+<p>类方法和属性</p>
+<table>
+<thead>
+<tr>
+<th>类方法/属性名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>time.max</code></td>
+<td>time类所能表示的最大时间：<code>time(23, 59, 59, 999999)</code></td>
+</tr>
+<tr>
+<td><code>time.min</code></td>
+<td>time类所能表示的最小时间：<code>time(0, 0, 0, 0)</code></td>
+</tr>
+<tr>
+<td><code>time.resolution</code></td>
+<td>时间的最小单位，即两个不同时间的最小差值：1微秒</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> datetime <span class="keyword">import</span> time</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>time.max</span><br><span class="line">datetime.time(<span class="number">23</span>, <span class="number">59</span>, <span class="number">59</span>, <span class="number">999999</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>time.min</span><br><span class="line">datetime.time(<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>time.resolution</span><br><span class="line">datetime.timedelta(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p>对象方法和属性</p>
+<table>
+<thead>
+<tr>
+<th>对象方法/属性名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>t.hour</code></td>
+<td>时</td>
+</tr>
+<tr>
+<td><code>t.minute</code></td>
+<td>分</td>
+</tr>
+<tr>
+<td><code>t.second</code></td>
+<td>秒</td>
+</tr>
+<tr>
+<td><code>t.microsecond</code></td>
+<td>微秒</td>
+</tr>
+<tr>
+<td><code>t.tzinfo</code></td>
+<td>返回传递给time构造方法的<code>tzinfo</code>对象，如果该参数未给出，则返回None</td>
+</tr>
+<tr>
+<td><code>t.replace(hour[, minute[, second[, microsecond[, tzinfo]]]])</code></td>
+<td>生成并返回一个新的时间对象，原时间对象不变</td>
+</tr>
+<tr>
+<td><code>t.isoformat()</code></td>
+<td>返回一个<code>‘HH:MM:SS.%f&#39;</code>格式的时间字符串</td>
+</tr>
+<tr>
+<td><code>t.strftime()</code></td>
+<td>返回指定格式的时间字符串，与<code>time</code>模块的<code>strftime(format, struct_time)</code>功能相同</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>t=time(<span class="number">20</span>,<span class="number">3</span>,<span class="number">55</span>,<span class="number">6789</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.hour</span><br><span class="line"><span class="number">20</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.minute</span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.second</span><br><span class="line"><span class="number">55</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.microsecond</span><br><span class="line"><span class="number">6789</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(t.tzinfo)</span><br><span class="line"><span class="keyword">None</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.replace(<span class="number">03</span>)</span><br><span class="line">datetime.time(<span class="number">3</span>, <span class="number">3</span>, <span class="number">55</span>, <span class="number">6789</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.isoformat()</span><br><span class="line"><span class="string">'20:03:55.006789'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.strftime(<span class="string">'%H%M%S'</span>)</span><br><span class="line"><span class="string">'200355'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.strftime(<span class="string">'%H%M%S.%f'</span>)</span><br><span class="line"><span class="string">'200355.006789'</span></span><br></pre></td></tr></table></figure>
+<h4 id="5-datetime-datetime类"><a href="#5-datetime-datetime类" class="headerlink" title="5. datetime.datetime类"></a><strong>5. <code>datetime.datetime</code>类</strong></h4><p><code>datetime</code>类的定义</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datetime(year, month, day[, hour[, minute[, second[, microsecond[,tzinfo]]]]])</span><br></pre></td></tr></table></figure>
+<p><code>year</code>, <code>month</code>和<code>day</code>是必须要传递的参数，<code>tzinfo</code>可以是<code>None</code>或<code>tzinfo</code>子类的实例。</p>
+<p>各参数的取值范围为：</p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>取值范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>year</td>
+<td>[MINYEAR, MAXYEAR]</td>
+</tr>
+<tr>
+<td>month</td>
+<td>[1, 12]</td>
+</tr>
+<tr>
+<td>day</td>
+<td>[1, 指定年份的月份中的天数]</td>
+</tr>
+<tr>
+<td>hour</td>
+<td>[0, 23]</td>
+</tr>
+<tr>
+<td>minute</td>
+<td>[0, 59]</td>
+</tr>
+<tr>
+<td>second</td>
+<td>[0, 59]</td>
+</tr>
+<tr>
+<td>microsecond</td>
+<td>[0, 1000000]</td>
+</tr>
+<tr>
+<td>tzinfo</td>
+<td>tzinfo的子类对象，如timezone类的实例</td>
+</tr>
+</tbody>
+</table>
+<p>如果一个参数超出了这些范围，会引起<code>ValueError</code>异常。</p>
+<p>类方法和属性</p>
+<table>
+<thead>
+<tr>
+<th>类方法/属性名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>datetime.today()</code></td>
+<td>返回一个表示当前本期日期时间的datetime对象</td>
+</tr>
+<tr>
+<td><code>datetime.now([tz])</code></td>
+<td>返回指定时区日期时间的datetime对象，如果不指定tz参数则结果同上</td>
+</tr>
+<tr>
+<td><code>datetime.utcnow()</code></td>
+<td>返回当前utc日期时间的datetime对象</td>
+</tr>
+<tr>
+<td><code>datetime.fromtimestamp(timestamp[, tz])</code></td>
+<td>根据指定的时间戳创建一个datetime对象</td>
+</tr>
+<tr>
+<td><code>datetime.utcfromtimestamp(timestamp)</code></td>
+<td>根据指定的时间戳创建一个datetime对象</td>
+</tr>
+<tr>
+<td><code>datetime.combine(date, time)</code></td>
+<td>把指定的date和time对象整合成一个datetime对象</td>
+</tr>
+<tr>
+<td><code>datetime.strptime(date_str, format)</code></td>
+<td>将时间字符串转换为datetime对象</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime, timezone, date</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>datetime.today()</span><br><span class="line">datetime.datetime(<span class="number">2018</span>, <span class="number">4</span>, <span class="number">29</span>, <span class="number">17</span>, <span class="number">13</span>, <span class="number">40</span>, <span class="number">956245</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>datetime.now()</span><br><span class="line">datetime.datetime(<span class="number">2018</span>, <span class="number">4</span>, <span class="number">29</span>, <span class="number">17</span>, <span class="number">14</span>, <span class="number">16</span>, <span class="number">872156</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>datetime.utcnow()</span><br><span class="line">datetime.datetime(<span class="number">2018</span>, <span class="number">4</span>, <span class="number">29</span>, <span class="number">9</span>, <span class="number">14</span>, <span class="number">34</span>, <span class="number">280177</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> time</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>datetime.fromtimestamp(time.time())</span><br><span class="line">datetime.datetime(<span class="number">2018</span>, <span class="number">4</span>, <span class="number">29</span>, <span class="number">17</span>, <span class="number">15</span>, <span class="number">27</span>, <span class="number">266250</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>datetime.utcfromtimestamp(time.time())</span><br><span class="line">datetime.datetime(<span class="number">2018</span>, <span class="number">4</span>, <span class="number">29</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">11</span>, <span class="number">24812</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>datetime.combine(datetime.date(<span class="number">2018</span>,<span class="number">2</span>,<span class="number">3</span>),t)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>datetime.strptime(<span class="string">'2017/02/04 20:49'</span>, <span class="string">'%Y/%m/%d %H:%M'</span>)</span><br><span class="line">datetime.datetime(<span class="number">2017</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">20</span>, <span class="number">49</span>)</span><br></pre></td></tr></table></figure>
+<p>对象方法和属性</p>
+<table>
+<thead>
+<tr>
+<th>对象方法/属性名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dt.year, dt.month, dt.day</code></td>
+<td>年、月、日</td>
+</tr>
+<tr>
+<td><code>dt.hour, dt.minute, dt.second</code></td>
+<td>时、分、秒</td>
+</tr>
+<tr>
+<td><code>dt.microsecond, dt.tzinfo</code></td>
+<td>微秒、时区信息</td>
+</tr>
+<tr>
+<td><code>dt.date()</code></td>
+<td>获取<code>datetime</code>对象对应的<code>date</code>对象</td>
+</tr>
+<tr>
+<td><code>dt.time()</code></td>
+<td>获取<code>datetime</code>对象对应的<code>time</code>对象， <code>tzinfo</code> 为None</td>
+</tr>
+<tr>
+<td><code>dt.timetz()</code></td>
+<td>获取<code>datetime</code>对象对应的<code>time</code>对象，<code>tzinfo</code>与<code>datetime</code>对象的<code>tzinfo</code>相同</td>
+</tr>
+<tr>
+<td><code>dt.replace([year[, month[, day[, hour[, minute[, second[, microsecond[, tzinfo]]]]]]]])</code></td>
+<td>生成并返回一个新的<code>datetime</code>对象，如果所有参数都没有指定，则返回一个与原<code>datetime</code>对象相同的对象</td>
+</tr>
+<tr>
+<td><code>dt.timetuple()</code></td>
+<td>返回<code>datetime</code>对象对应的tuple（不包括<code>tzinfo</code>）</td>
+</tr>
+<tr>
+<td><code>dt.utctimetuple()</code></td>
+<td>返回<code>datetime</code>对象对应的utc时间的<code>tuple</code>（不包括<code>tzinfo</code>）</td>
+</tr>
+<tr>
+<td><code>dt.toordinal()</code></td>
+<td>同date对象</td>
+</tr>
+<tr>
+<td><code>dt.weekday()</code></td>
+<td>同date对象</td>
+</tr>
+<tr>
+<td><code>dt.isocalendar()</code></td>
+<td>同date独享</td>
+</tr>
+<tr>
+<td><code>dt.isoformat([sep])</code></td>
+<td>返回一个<code>‘%Y-%m-%d&#39;</code></td>
+</tr>
+<tr>
+<td><code>dt.ctime()</code></td>
+<td>等价于time模块的<code>time.ctime(time.mktime(d.timetuple()))</code></td>
+</tr>
+<tr>
+<td><code>dt.strftime(format)</code></td>
+<td>返回指定格式的时间字符串</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime, timezone</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dt=datetime.now()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dt</span><br><span class="line">datetime.datetime(<span class="number">2018</span>, <span class="number">4</span>, <span class="number">29</span>, <span class="number">17</span>, <span class="number">33</span>, <span class="number">26</span>, <span class="number">541752</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dt.year</span><br><span class="line"><span class="number">2018</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dt.timestamp()</span><br><span class="line"><span class="number">1524994406.541752</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dt.date()</span><br><span class="line">datetime.date(<span class="number">2018</span>, <span class="number">4</span>, <span class="number">29</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dt.time()</span><br><span class="line">datetime.time(<span class="number">17</span>, <span class="number">33</span>, <span class="number">26</span>, <span class="number">541752</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dt.timetz()</span><br><span class="line">datetime.time(<span class="number">17</span>, <span class="number">33</span>, <span class="number">26</span>, <span class="number">541752</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dt.replace(<span class="number">2017</span>)</span><br><span class="line">datetime.datetime(<span class="number">2017</span>, <span class="number">4</span>, <span class="number">29</span>, <span class="number">17</span>, <span class="number">33</span>, <span class="number">26</span>, <span class="number">541752</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dt.timetuple()</span><br><span class="line">time.struct_time(tm_year=<span class="number">2018</span>, tm_mon=<span class="number">4</span>, tm_mday=<span class="number">29</span>, tm_hour=<span class="number">17</span>, tm_min=<span class="number">33</span>, tm_sec=<span class="number">26</span>, tm_wday=<span class="number">6</span>, tm_yday=<span class="number">119</span>, tm_isdst=<span class="number">-1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dt.utctimetuple()</span><br><span class="line">time.struct_time(tm_year=<span class="number">2018</span>, tm_mon=<span class="number">4</span>, tm_mday=<span class="number">29</span>, tm_hour=<span class="number">17</span>, tm_min=<span class="number">33</span>, tm_sec=<span class="number">26</span>, tm_wday=<span class="number">6</span>, tm_yday=<span class="number">119</span>, tm_isdst=<span class="number">0</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dt.toordinal()</span><br><span class="line"><span class="number">736813</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dt.weekday()</span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dt.isoweekday()</span><br><span class="line"><span class="number">7</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dt.isocalendar()</span><br><span class="line">(<span class="number">2018</span>, <span class="number">17</span>, <span class="number">7</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dt.isoformat()</span><br><span class="line"><span class="string">'2018-04-29T17:33:26.541752'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dt.isoformat(<span class="string">'/'</span>)</span><br><span class="line"><span class="string">'2018-04-29/17:33:26.541752'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dt.isoformat(<span class="string">' '</span>)</span><br><span class="line"><span class="string">'2018-04-29 17:33:26.541752'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dt.ctime()</span><br><span class="line"><span class="string">'Sun Apr 29 17:33:26 2018'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dt.strftime(<span class="string">'%Y%m%d %H:%M:%S.%f'</span>)</span><br><span class="line"><span class="string">'20180429 17:33:26.541752'</span></span><br></pre></td></tr></table></figure>
+<h4 id="6-使用datetime-datetime类对时间戳与时间字符串进行转换"><a href="#6-使用datetime-datetime类对时间戳与时间字符串进行转换" class="headerlink" title="6. 使用datetime.datetime类对时间戳与时间字符串进行转换"></a><strong>6. 使用<code>datetime.datetime</code>类对时间戳与时间字符串进行转换</strong></h4><p><img src="/2018/05/14/date类和datetime类/2017021616254731.png" alt="2017021616254731"></p>
+<p><strong>7.<code>datetime.timedelta</code>类</strong></p>
+<p><code>timedelta</code>对象表示连个不同时间之间的差值。如果使用<code>time</code>模块对时间进行算术运行，只能将字符串格式的时间 和 <code>struct_time</code>格式的时间对象 先转换为时间戳格式，然后对该时间戳加上或减去n秒，最后再转换回<code>struct_time</code>格式或字符串格式，这显然很不方便。而<code>datetime</code>模块提供的<code>timedelta</code>类可以让我们很方面的对<code>datetime.date</code>, <code>datetime.time</code>和<code>datetime.datetime</code>对象做算术运算，且两个时间之间的差值单位也更加容易控制。<br> 这个差值的单位可以是：天、秒、微秒、毫秒、分钟、小时、周。</p>
+<p><code>datetime.timedelta</code>类的定义:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">datetime</span>.<span class="title">timedelta</span><span class="params">(days=<span class="number">0</span>, seconds=<span class="number">0</span>, microseconds=<span class="number">0</span>, milliseconds=<span class="number">0</span>, hours=<span class="number">0</span>, weeks=<span class="number">0</span>)</span></span></span><br></pre></td></tr></table></figure>
+<p>所有参数都是默认参数，因此都是可选参数。参数的值可以是整数或浮点数，也可以是正数或负数。内部值存储<code>days</code>、<code>seconds</code> 和 <code>microseconds</code>，其他所有参数都将被转换成这3个单位：</p>
+<ul>
+<li>1毫秒转换为1000微秒</li>
+<li>1分钟转换为60秒</li>
+<li>1小时转换为3600秒</li>
+<li>1周转换为7天</li>
+</ul>
+<p>然后对这3个值进行标准化，使得它们的表示是唯一的：</p>
+<ul>
+<li>microseconds : [0, 999999]</li>
+<li>seconds : [0, 86399]</li>
+<li>days : [-999999999, 999999999]</li>
+</ul>
+<p>类属性</p>
+<table>
+<thead>
+<tr>
+<th>类属性名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>timedelta.min</code></td>
+<td><code>timedelta(-999999999)</code></td>
+</tr>
+<tr>
+<td><code>timedelta.max</code></td>
+<td><code>timedelta(days=999999999, hours=23, minutes=59, seconds=59, microseconds=999999)</code></td>
+</tr>
+<tr>
+<td><code>timedelta.resolution</code></td>
+<td><code>timedelta(microseconds=1)</code></td>
+</tr>
+</tbody>
+</table>
+<p>实例方法和属性</p>
+<table>
+<thead>
+<tr>
+<th>实例方法/属性名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>td.days</code></td>
+<td>天 [-999999999, 999999999]</td>
+</tr>
+<tr>
+<td><code>td.seconds</code></td>
+<td>秒 [0, 86399]</td>
+</tr>
+<tr>
+<td><code>td.microseconds</code></td>
+<td>微秒 [0, 999999]</td>
+</tr>
+<tr>
+<td><code>td.total_seconds()</code></td>
+<td>时间差中包含的总秒数，等价于: td / timedelta(seconds=1)</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> datetime</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>datetime.timedelta(<span class="number">365</span>).total_seconds()</span><br><span class="line"><span class="number">31536000.0</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dt=datetime.datetime.now()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dt</span><br><span class="line">datetime.datetime(<span class="number">2018</span>, <span class="number">4</span>, <span class="number">29</span>, <span class="number">17</span>, <span class="number">47</span>, <span class="number">57</span>, <span class="number">449792</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dt+datetime.timedelta(<span class="number">3</span>)<span class="comment">#三天后</span></span><br><span class="line">datetime.datetime(<span class="number">2018</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">17</span>, <span class="number">47</span>, <span class="number">57</span>, <span class="number">449792</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dt+datetime.timedelta(<span class="number">-3</span>)</span><br><span class="line">datetime.datetime(<span class="number">2018</span>, <span class="number">4</span>, <span class="number">26</span>, <span class="number">17</span>, <span class="number">47</span>, <span class="number">57</span>, <span class="number">449792</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dt+datetime.timedelta(hours=<span class="number">3</span>)</span><br><span class="line">datetime.datetime(<span class="number">2018</span>, <span class="number">4</span>, <span class="number">29</span>, <span class="number">20</span>, <span class="number">47</span>, <span class="number">57</span>, <span class="number">449792</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dt+datetime.timedelta(hours=<span class="number">-3</span>)</span><br><span class="line">datetime.datetime(<span class="number">2018</span>, <span class="number">4</span>, <span class="number">29</span>, <span class="number">14</span>, <span class="number">47</span>, <span class="number">57</span>, <span class="number">449792</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dt+datetime.timedelta(hours=<span class="number">3</span>,seconds=<span class="number">30</span>)</span><br><span class="line">datetime.datetime(<span class="number">2018</span>, <span class="number">4</span>, <span class="number">29</span>, <span class="number">20</span>, <span class="number">48</span>, <span class="number">27</span>, <span class="number">449792</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="五、时间格式码"><a href="#五、时间格式码" class="headerlink" title="五、时间格式码"></a><strong>五、时间格式码</strong></h3><p><code>time</code>模块的<code>struct_time</code>以及<code>datetime</code>模块的<code>datetime、date、time</code>类都提供了<code>strftime()</code>方法，该方法是用来格式化一个日期、日期时间和时间，可以输出一个指定格式的时间字符串。相反<code>strptime()</code>函数就是从字符串表示的日期时间按格式化字符串要求转换为相应的日期时间。</p>
+<p> 对于<code>time</code>对象来说，格式化字符串不要使用年、月、日相关的字符，因为time对象没有相应的值。如果不幸使用了，只能默认输出为0值。</p>
+<p> 对于<code>date</code>对象来说，格式化字符串不要使用时、分、秒和微秒相关的字符，因为date对象没有相应的值。如果使用了，只能默认输出为0值。</p>
+<p> 由于<code>strftime()</code>函数是调用C语言lib库来实现的，所以在不同平台都支持，具体特定平台支持的细节，需要在平台上查看<code>strftime</code>文档说明。</p>
+<p>下面列表符合<code>C89</code>和<code>C99</code>标准的格式化字符：</p>
+<table>
+<thead>
+<tr>
+<th>格式字符</th>
+<th>意义</th>
+<th>例子</th>
+<th>注意事项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%a</td>
+<td>星期几的英语缩写</td>
+<td>Sun, Mon, …, Sat(en_US); So, Mo, …, Sa(de_DE)</td>
+<td></td>
+</tr>
+<tr>
+<td>%A</td>
+<td>星期几的英语全称</td>
+<td>Sunday, Monday, …, Saturday(en_US)</td>
+<td></td>
+</tr>
+<tr>
+<td>%w</td>
+<td>星期几采用数字表示，0表示星期日，6表示星期六。</td>
+<td>0，1，…，6</td>
+<td></td>
+</tr>
+<tr>
+<td>%d</td>
+<td>用0补充的两位日期数字。</td>
+<td>01，02，…，31</td>
+<td></td>
+</tr>
+<tr>
+<td>%b</td>
+<td>月份采用缩写字符表示。</td>
+<td>Jan, Feb,…, Dec(en_US)</td>
+<td></td>
+</tr>
+<tr>
+<td>%B</td>
+<td>月份采用全名称表示。</td>
+<td>January, February, …,December(en_US)</td>
+<td></td>
+</tr>
+<tr>
+<td>%m</td>
+<td>月份采用0补充的两位数表示。</td>
+<td>01，02，…，12</td>
+<td></td>
+</tr>
+<tr>
+<td>%y</td>
+<td>年份采用0补充的两位数表示。</td>
+<td>00，01，…，99</td>
+<td></td>
+</tr>
+<tr>
+<td>%Y</td>
+<td>采用四位数表示的年份。</td>
+<td>0001，0002，…，2013，2014，2015，…，9998，9999</td>
+<td></td>
+</tr>
+<tr>
+<td>%H</td>
+<td>以0补充的24小时表示的小时。</td>
+<td>00，01，…，23</td>
+<td></td>
+</tr>
+<tr>
+<td>%I</td>
+<td>以0补充的12小时表示的小时。</td>
+<td>00，01，…，12</td>
+<td></td>
+</tr>
+<tr>
+<td>%p</td>
+<td>本地时间是上午还是下午。</td>
+<td>AM，PM(en_US)</td>
+<td></td>
+</tr>
+<tr>
+<td>%M</td>
+<td>以0补充的分钟表示。</td>
+<td>00，01，…，59</td>
+<td></td>
+</tr>
+<tr>
+<td>%S</td>
+<td>以0补充的秒表示。</td>
+<td>00，01，…，59</td>
+<td></td>
+</tr>
+<tr>
+<td>%f</td>
+<td>以0补充的微秒表示。</td>
+<td>000000，000001，…，999999</td>
+<td></td>
+</tr>
+<tr>
+<td>%z</td>
+<td>UTC偏移表示为+HHMM或-HHMM。</td>
+<td>(empty)，+0000,-0400,+1030，…</td>
+<td></td>
+</tr>
+<tr>
+<td>%Z</td>
+<td>时区名称。</td>
+<td>(empty)，UTC，EST，CST，…</td>
+<td></td>
+</tr>
+<tr>
+<td>%j</td>
+<td>以0补充的年的天数。</td>
+<td>001，002，…，366</td>
+<td></td>
+</tr>
+<tr>
+<td>%U</td>
+<td>一年里第几周，星期日作为一周开始。</td>
+<td>00，01，…，53</td>
+<td></td>
+</tr>
+<tr>
+<td>%W</td>
+<td>一年里第几周，星期一作为一周开始。</td>
+<td>00，01，…，53</td>
+<td></td>
+</tr>
+<tr>
+<td>%c</td>
+<td>采用本地合适日期和时间表示。</td>
+<td>Tue Aug 16 21:30:00 1988(en_US)</td>
+<td></td>
+</tr>
+<tr>
+<td>%x</td>
+<td>采用本地合适日期表示。</td>
+<td>08/16/88(None);08/16/1988(en_US)</td>
+<td></td>
+</tr>
+<tr>
+<td>%%</td>
+<td>输出百分号%。</td>
+<td>%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="六、pytz模块与tzlocal模块"><a href="#六、pytz模块与tzlocal模块" class="headerlink" title="六、pytz模块与tzlocal模块"></a><strong>六、pytz模块与tzlocal模块</strong></h3><ul>
+<li><code>pytz</code>模块将时区信息数据库引入python，此信息库又称<code>TZ database</code>、<code>Zoneinfo database</code>，是一个主要应用于电脑程序以及操作系统的，可协作编辑世界时区信息的数据库。由于该数据库由David Olson创立，因而有些地方也将其称作Olson数据库。</li>
+<li><code>tzlocal</code>返回一个 包含当地的时区信息的<code>tzinfo</code> 对象（需要使用<code>pytz</code>）。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pytz</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime, timedelta</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> time</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(pytz.country_timezones(<span class="string">"cn"</span>))</span><br><span class="line">[<span class="string">'Asia/Shanghai'</span>, <span class="string">'Asia/Urumqi'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>nytz=pytz.timezone(<span class="string">'America/New_York'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>shtz=pytz.timezone(<span class="string">'Asia/Shanghai'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>fmt = <span class="string">'%Y-%m-%d %H:%M:%S %Z%z'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>datetime.datetime.now(nytz).strftime(fmt)</span><br><span class="line"><span class="string">'2018-04-29 20:48:07 EDT-0400'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sh_time=datetime.datetime.now(shtz).strftime(fmt)</span><br><span class="line"><span class="string">'2018-04-30 08:48:08 CST+0800'</span></span><br><span class="line"><span class="comment">#获取当前时区信息</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> tzlocal <span class="keyword">import</span> get_localzone</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>local_tz=get_localzone()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>local_tz</span><br><span class="line">&lt;DstTzInfo <span class="string">'Asia/Shanghai'</span> LMT+<span class="number">8</span>:<span class="number">06</span>:<span class="number">00</span> STD&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>local_date = datetime.datetime.now(pytz.timezone(str(get_localzone())))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>local_date</span><br><span class="line">datetime.datetime(<span class="number">2018</span>, <span class="number">4</span>, <span class="number">30</span>, <span class="number">9</span>, <span class="number">42</span>, <span class="number">29</span>, <span class="number">234674</span>, tzinfo=&lt;DstTzInfo <span class="string">'Asia/Shanghai'</span> CST+<span class="number">8</span>:<span class="number">00</span>:<span class="number">00</span> STD&gt;)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>local_date = datetime.datetime.now()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>local_date</span><br><span class="line">datetime.datetime(<span class="number">2018</span>, <span class="number">4</span>, <span class="number">30</span>, <span class="number">9</span>, <span class="number">42</span>, <span class="number">53</span>, <span class="number">241570</span>)</span><br><span class="line"><span class="comment">##</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>eastern = pytz.timezone(<span class="string">'US/Eastern'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>amsterdam = pytz.timezone(<span class="string">'Europe/Amsterdam'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>type(eastern)</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">pytz</span>.<span class="title">tzfile</span>.<span class="title">US</span>/<span class="title">Eastern</span>'&gt;</span></span><br><span class="line">&gt;&gt;&gt; loc_dt = eastern.localize(datetime(2002, 10, 27, 6, 0, 0))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>type(loc_dt)</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">datetime</span>.<span class="title">datetime</span>'&gt;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">print</span><span class="params">(loc_dt.strftime<span class="params">(fmt)</span>)</span></span></span><br><span class="line"><span class="class">2002-10-27 06:</span><span class="number">00</span>:<span class="number">00</span> EST<span class="number">-0500</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>ams_dt = loc_dt.astimezone(amsterdam)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>ams_dt.strftime(fmt)</span><br><span class="line"><span class="string">'2002-10-27 12:00:00 CET+0100'</span></span><br></pre></td></tr></table></figure>
+<h3 id="七、总结"><a href="#七、总结" class="headerlink" title="七、总结"></a><strong>七、总结</strong></h3><p>那么Python中处理时间时，使用<code>time</code>模块好，还是用<code>datetime</code>模块好呢？就我个人而言，<code>datetime</code>模块基本上可以满足需要，且用起来确实比较方便。对于<code>time</code>模块，我只是在取当前时间的时间戳时会用到<code>time.time()</code>方法，当然也可以通过<code>datetime.datetime.now().timestamp()</code>来获取，只是显得复杂一点。我觉得还是看个人习惯吧，没有什么绝对的好坏之分。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/datetime/" rel="tag"># datetime</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/14/Python网络爬虫与信息提取/" rel="next" title="Python网络爬虫与信息提取">
+                <i class="fa fa-chevron-left"></i> Python网络爬虫与信息提取
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/14/itertools模块总结/" rel="prev" title="itertools模块总结">
+                itertools模块总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">QT</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一、相关术语的解释"><span class="nav-number">2.</span> <span class="nav-text">一、相关术语的解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、时间的表现形式"><span class="nav-number">3.</span> <span class="nav-text">二、时间的表现形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、time模块"><span class="nav-number">4.</span> <span class="nav-text">三、time模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-函数列表"><span class="nav-number">4.1.</span> <span class="nav-text">1. 函数列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-时间格式转换"><span class="nav-number">4.2.</span> <span class="nav-text">2. 时间格式转换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、-datetime模块"><span class="nav-number">5.</span> <span class="nav-text">四、 datetime模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-datetime模块中定义的类"><span class="nav-number">5.1.</span> <span class="nav-text">1. datetime模块中定义的类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-datetime模块中定义的常量"><span class="nav-number">5.2.</span> <span class="nav-text">2. datetime模块中定义的常量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-datetime-date类"><span class="nav-number">5.3.</span> <span class="nav-text">3. datetime.date类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-datetime-time类"><span class="nav-number">5.4.</span> <span class="nav-text">4. datetime.time类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-datetime-datetime类"><span class="nav-number">5.5.</span> <span class="nav-text">5. datetime.datetime类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-使用datetime-datetime类对时间戳与时间字符串进行转换"><span class="nav-number">5.6.</span> <span class="nav-text">6. 使用datetime.datetime类对时间戳与时间字符串进行转换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、时间格式码"><span class="nav-number">6.</span> <span class="nav-text">五、时间格式码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、pytz模块与tzlocal模块"><span class="nav-number">7.</span> <span class="nav-text">六、pytz模块与tzlocal模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七、总结"><span class="nav-number">8.</span> <span class="nav-text">七、总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">QT</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
