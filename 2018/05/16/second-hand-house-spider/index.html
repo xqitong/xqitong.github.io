@@ -101,7 +101,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/05/16/second-hand-house-spider/5.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/05/16/second-hand-house-spider/6.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/05/16/second-hand-house-spider/1526450752709.png">
-<meta property="og:updated_time" content="2018-05-16T06:13:51.410Z">
+<meta property="og:updated_time" content="2018-05-16T06:22:22.788Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="second-hand-house-spider">
 <meta name="twitter:description" content="第一个爬虫程序，爬了链家网的二手房信息。 作为刚入门的小白，最好的学习方式就是拿一个项目练手，所以就想到了搜集一下二手房信息。主要是因为房子信息比较敏感，因为屌丝们不是在当房奴，就是在当房奴的路上，要么就是当不起房奴。。。好了，不扯淡了，三天时间，边看《Python网络爬虫与信息提取》的视频，边学用typora写了个学习笔记，边敲了代码。传统行业从业，不是专业程序员，只是在当程序员的路上，大神轻拍">
@@ -415,13 +415,17 @@
 <p>作为刚入门的小白，最好的学习方式就是拿一个项目练手，所以就想到了搜集一下二手房信息。主要是因为房子信息比较敏感，因为屌丝们不是在当房奴，就是在当房奴的路上，要么就是当不起房奴。。。好了，不扯淡了，三天时间，边看《Python网络爬虫与信息提取》的视频，边学用typora写了个学习笔记，边敲了代码。传统行业从业，不是专业程序员，只是在当程序员的路上，大神轻拍。。。</p>
 <h2 id="链家网url结构分析："><a href="#链家网url结构分析：" class="headerlink" title="链家网url结构分析："></a>链家网url结构分析：</h2><p>获得城市子域名代码，进入<code>http://&lt;city&gt;.lianjia.com</code>，例如sh-上海，bj-北京</p>
 <ul>
-<li>以小区为爬取目标：</li>
+<li>以小区为爬取目标：<ul>
 <li>获得该城市的小区栏目页面，<code>http://&lt;city&gt;.lianjia.com/xiaoqu/pg&lt;n&gt;/</code></li>
 <li>获得该城市的各区县页面，<code>http://&lt;city&gt;.lianjia.com/xiaoqu/&lt;district&gt;/pg&lt;n&gt;/</code></li>
 <li>获得该区县的各板块页面，<code>http://&lt;city&gt;.lianjia.com/xiaoqu/&lt;area&gt;/pg&lt;n&gt;/</code></li>
-<li>以行政区为爬取目标：</li>
+</ul>
+</li>
+<li>以行政区为爬取目标：<ul>
 <li>获得该城市的二手房栏目页面，<code>https://&lt;city&gt;.lianjia.com/ershoufang/pg&lt;n&gt;/</code></li>
 <li>获得该城市某区二手房栏目页面，<code>https://&lt;city&gt;.lianjia.com/ershoufang/&lt;district&gt;/pg&lt;n&gt;/</code></li>
+</ul>
+</li>
 </ul>
 <p>这次仅仅用来爬取二手房信息并生成关注度的热力图，由于链家每个栏目最多显示100页信息，为了更多的了解相关城区的二手房信息，按行政区爬取。</p>
 <p>以宇宙第一首都北京市为例：<code>https://bj.lianjia.com/ershoufang/&lt;district&gt;/</code></p>
@@ -511,6 +515,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/05/16/second-hand-house-spider/heatmap-demo/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -593,7 +601,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
