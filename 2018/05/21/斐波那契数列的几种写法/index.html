@@ -94,12 +94,13 @@
 <meta property="og:site_name" content="QT&#39;s blog">
 <meta property="og:description" content="斐波那契数列斐波那契数列（意大利语：Successione di Fibonacci），又译为费波拿契数列、费波那西数列、斐波那契数列、黄金分割数列。 在数学上，费波那契数列是以递归的方法来定义： F[0] = 0  F[1] = 1  F[n] = F[n − 1] + F[n − 2] （n≧2） 用文字来说，就是费波那契数列由0和1开始，之后的费波那契系数就是由之前的两数相加而得出。首几个费">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/05/21/斐波那契数列的几种写法/1526906916835.png">
-<meta property="og:updated_time" content="2018-05-21T13:11:49.849Z">
+<meta property="og:image" content="http://yoursite.com/2018/05/21/斐波那契数列的几种写法/20161004200323252.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/21/斐波那契数列的几种写法/20161004200246626.png">
+<meta property="og:updated_time" content="2018-05-21T13:44:41.678Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="斐波那契数列的几种写法">
 <meta name="twitter:description" content="斐波那契数列斐波那契数列（意大利语：Successione di Fibonacci），又译为费波拿契数列、费波那西数列、斐波那契数列、黄金分割数列。 在数学上，费波那契数列是以递归的方法来定义： F[0] = 0  F[1] = 1  F[n] = F[n − 1] + F[n − 2] （n≧2） 用文字来说，就是费波那契数列由0和1开始，之后的费波那契系数就是由之前的两数相加而得出。首几个费">
-<meta name="twitter:image" content="http://yoursite.com/2018/05/21/斐波那契数列的几种写法/1526906916835.png">
+<meta name="twitter:image" content="http://yoursite.com/2018/05/21/斐波那契数列的几种写法/20161004200323252.png">
 
 
 
@@ -442,8 +443,9 @@ F[n] = F[n − 1] + F[n − 2] （n≧2）
 <li>矩阵运算</li>
 </ul>
 <p>对于F[n] = F[n − 1] + F[n − 2] （n≧2）这样的递推公式，我们可以考虑构建一个二维的递归公式：</p>
-<p><img src="/2018/05/21/斐波那契数列的几种写法/1526906916835.png" alt="1526906916835"></p>
-<p>可以写出一直递推到1，0的公式，前面是矩阵的次幂形式，请读者自己动手推导。</p>
+<p><img src="/2018/05/21/斐波那契数列的几种写法/20161004200323252.png" alt="20161004200323252"></p>
+<p>可以写出一直递推到F[1]，F[0]的公式，前面是矩阵的次幂形式：</p>
+<p><img src="/2018/05/21/斐波那契数列的几种写法/20161004200246626.png" alt="20161004200246626"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> *</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fibmat</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">elif</span> n == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">elif</span> n == <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        k = mat([[<span class="number">1</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>]])</span><br><span class="line">        tmp = k</span><br><span class="line">        <span class="keyword">while</span> n &gt; <span class="number">3</span>:</span><br><span class="line">            tmp = dot(tmp, k)</span><br><span class="line">            n -= <span class="number">1</span></span><br><span class="line">        res = dot(tmp, mat([[<span class="number">1</span>], [<span class="number">1</span>]]))</span><br><span class="line">        <span class="keyword">return</span> int(res[<span class="number">0</span>][<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
 <ul>
 <li>尾递归形式</li>
