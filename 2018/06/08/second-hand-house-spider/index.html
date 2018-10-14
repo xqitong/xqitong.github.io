@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="requests,bs4,re," />
 
 
 
@@ -86,13 +86,26 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="QT&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/tags/递归/index.html">
+<meta name="description" content="第一个爬虫程序，爬了链家网的二手房信息。 作为刚入门的小白，最好的学习方式就是拿一个项目练手，所以就想到了搜集一下二手房信息。主要是因为房子信息比较敏感，因为屌丝们不是在当房奴，就是在当房奴的路上，要么就是当不起房奴。。。好了，不扯淡了，三天时间，边看《Python网络爬虫与信息提取》的视频，边学用typora写了个学习笔记，边敲了代码。传统行业从业，不是专业程序员，只是在当程序员的路上，大神轻拍">
+<meta name="keywords" content="requests,bs4,re">
+<meta property="og:type" content="article">
+<meta property="og:title" content="second-hand-house-spider">
+<meta property="og:url" content="http://yoursite.com/2018/06/08/second-hand-house-spider/index.html">
 <meta property="og:site_name" content="QT&#39;s blog">
+<meta property="og:description" content="第一个爬虫程序，爬了链家网的二手房信息。 作为刚入门的小白，最好的学习方式就是拿一个项目练手，所以就想到了搜集一下二手房信息。主要是因为房子信息比较敏感，因为屌丝们不是在当房奴，就是在当房奴的路上，要么就是当不起房奴。。。好了，不扯淡了，三天时间，边看《Python网络爬虫与信息提取》的视频，边学用typora写了个学习笔记，边敲了代码。传统行业从业，不是专业程序员，只是在当程序员的路上，大神轻拍">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/06/08/second-hand-house-spider/1.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/06/08/second-hand-house-spider/2.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/06/08/second-hand-house-spider/3.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/06/08/second-hand-house-spider/4.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/06/08/second-hand-house-spider/5.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/06/08/second-hand-house-spider/6.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/06/08/second-hand-house-spider/1526450752709.png">
+<meta property="og:updated_time" content="2018-10-14T22:43:00.372Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="QT&#39;s blog">
+<meta name="twitter:title" content="second-hand-house-spider">
+<meta name="twitter:description" content="第一个爬虫程序，爬了链家网的二手房信息。 作为刚入门的小白，最好的学习方式就是拿一个项目练手，所以就想到了搜集一下二手房信息。主要是因为房子信息比较敏感，因为屌丝们不是在当房奴，就是在当房奴的路上，要么就是当不起房奴。。。好了，不扯淡了，三天时间，边看《Python网络爬虫与信息提取》的视频，边学用typora写了个学习笔记，边敲了代码。传统行业从业，不是专业程序员，只是在当程序员的路上，大神轻拍">
+<meta name="twitter:image" content="http://yoursite.com/2018/06/08/second-hand-house-spider/1.jpg">
 
 
 
@@ -122,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/递归/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/08/second-hand-house-spider/"/>
 
 
 
 
 
-  <title>标签: 递归 | QT's blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>second-hand-house-spider | QT's blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -147,7 +160,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -295,54 +308,246 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>递归<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/08/second-hand-house-spider/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="QT">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="QT's blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/07/05/斐波那契数列的几种写法/" itemprop="url">
-              
-                <span itemprop="name">斐波那契数列的几种写法</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">second-hand-house-spider</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-05T21:08:01+08:00"
-              content="2018-07-05" >
-          07-05
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-08T14:10:33+08:00">
+                2018-06-08
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/爬虫/" itemprop="url" rel="index">
+                    <span itemprop="name">爬虫</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/08/second-hand-house-spider/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/06/08/second-hand-house-spider/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>第一个爬虫程序，爬了链家网的二手房信息。</p>
+<p>作为刚入门的小白，最好的学习方式就是拿一个项目练手，所以就想到了搜集一下二手房信息。主要是因为房子信息比较敏感，因为屌丝们不是在当房奴，就是在当房奴的路上，要么就是当不起房奴。。。好了，不扯淡了，三天时间，边看《Python网络爬虫与信息提取》的视频，边学用typora写了个学习笔记，边敲了代码。传统行业从业，不是专业程序员，只是在当程序员的路上，大神轻拍。。。</p>
+<h2 id="链家网url结构分析："><a href="#链家网url结构分析：" class="headerlink" title="链家网url结构分析："></a>链家网url结构分析：</h2><p>获得城市子域名代码，进入<code>http://&lt;city&gt;.lianjia.com</code>，例如sh-上海，bj-北京</p>
+<ul>
+<li>以小区为爬取目标：<ul>
+<li>获得该城市的小区栏目页面，<code>http://&lt;city&gt;.lianjia.com/xiaoqu/pg&lt;n&gt;/</code></li>
+<li>获得该城市的各区县页面，<code>http://&lt;city&gt;.lianjia.com/xiaoqu/&lt;district&gt;/pg&lt;n&gt;/</code></li>
+<li>获得该区县的各板块页面，<code>http://&lt;city&gt;.lianjia.com/xiaoqu/&lt;area&gt;/pg&lt;n&gt;/</code></li>
+</ul>
+</li>
+<li>以行政区为爬取目标：<ul>
+<li>获得该城市的二手房栏目页面，<code>https://&lt;city&gt;.lianjia.com/ershoufang/pg&lt;n&gt;/</code></li>
+<li>获得该城市某区二手房栏目页面，<code>https://&lt;city&gt;.lianjia.com/ershoufang/&lt;district&gt;/pg&lt;n&gt;/</code></li>
+</ul>
+</li>
+</ul>
+<p>这次仅仅用来爬取二手房信息并生成关注度的热力图，由于链家每个栏目最多显示100页信息，为了更多的了解相关城区的二手房信息，按行政区爬取。</p>
+<p>以宇宙第一首都北京市为例：<code>https://bj.lianjia.com/ershoufang/&lt;district&gt;/</code></p>
+<ul>
+<li><p><code>&lt;district&gt;</code>：为北京的行政区，为了方便爬取，建一个行政区字典：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bjdistricts =&#123;<span class="string">'东城区'</span>:<span class="string">'dongcheng'</span>,<span class="string">'西城区'</span>:<span class="string">'xicheng'</span>,<span class="string">'朝阳区'</span>:<span class="string">'chaoyang'</span>,<span class="string">'海淀区'</span>:<span class="string">'haidian'</span>,<span class="string">'丰台区'</span>:<span class="string">'fengtai'</span>,<span class="string">'石景山区'</span>:<span class="string">'shijingshan'</span>,<span class="string">'通州区'</span>:<span class="string">'tongzhou'</span>,<span class="string">'昌平区'</span>:<span class="string">'changping'</span>,<span class="string">'大兴区'</span>:<span class="string">'daxing'</span>,<span class="string">'亦庄开发区'</span>:<span class="string">'yizhuangkaifaqu'</span>,<span class="string">'顺义区'</span>:<span class="string">'shunyi'</span>,<span class="string">'房山区'</span>:<span class="string">'fangshan'</span>,<span class="string">'门头沟区'</span>:<span class="string">'mentougou'</span>,<span class="string">'平谷区'</span>:<span class="string">'pinggu'</span>,<span class="string">'怀柔区'</span>:<span class="string">'huairou'</span>,<span class="string">'密云区'</span>:<span class="string">'miyun'</span>,<span class="string">'延庆区'</span>:<span class="string">'yanqing'</span>,<span class="string">'燕郊'</span>:<span class="string">'yanjiao'</span>,<span class="string">'香河'</span>:<span class="string">'xianghe'</span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>pg&lt;n&gt;</code>:为页数，依据相关行政区获取，没有抓取这个信息，点开网站看一眼就可以，东城与西城不到100，海淀和朝阳这样的大区都超过了100页，所以最大是100。</p>
+</li>
+</ul>
+<h2 id="具体实现："><a href="#具体实现：" class="headerlink" title="具体实现："></a>具体实现：</h2><ul>
+<li><p>使用requests来访问链家网页面信息</p>
+</li>
+<li><p>使用beautifulsoup和lxml库解析页面信息</p>
+</li>
+<li><p>使用re库提取信息，包括：</p>
+</li>
+</ul>
+<p><code>[&#39;小区编号&#39;,&#39;房屋编号&#39;,&#39;小区名&#39;,&#39;户型&#39;,&#39;面积(m2)&#39;,&#39;朝向&#39;,&#39;装修&#39;,&#39;楼层&#39;,&#39;年代&#39;,&#39;区位&#39;,&#39;总价(万)&#39;,&#39;均价(元/m2)&#39;,&#39;关注(人)&#39;,&#39;带看(次)&#39;,&#39;坐标&#39;]</code></p>
+<p><img src="/2018/06/08/second-hand-house-spider/1.jpg" alt="1"></p>
+<ul>
+<li>使用百度地图API获取坐标信息（需提前申请API调用的key，填入ak处）</li>
+</ul>
+<p><img src="/2018/06/08/second-hand-house-spider/2.jpg" alt="2"></p>
+<ul>
+<li>将信息存入CSV以备后续分析（不会数据库。。😭）</li>
+</ul>
+<p><img src="/2018/06/08/second-hand-house-spider/3.jpg" alt="3"></p>
+<ul>
+<li>百度地图（没学过网页的相关知识，就是边学边弄）：</li>
+</ul>
+<p>用了百度的模板，添加了行政区域边界，和不同风格的模板，就是玩玩，还挺有意思。</p>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><ul>
+<li>坐标反馈错误，一开始只用小区信息提交给baidu，发现反馈的数据很多出了北京市，还有返回广东的坐标，后面将提教信息完善，补充了成<code>北京 朝阳区 双井 富力城</code>这样的格式，返回的坐标基本没有问题，但是也有部分跨区的。</li>
+<li>正则提取房屋信息时，户型以为都时<code>x室x厅</code>，后面发现还有<code>x房间x卫</code>这样的格式，这些问题基本就是遇到了再解决。</li>
+<li>热力图生成用了关注人数和带看人数的加权平均，发现关注人数很多，但是带看很少，我认为关注人数更加能反应关注度，这个信息是购房者主动释放的，而带看是链家工作人员录入的。</li>
+<li>由于没有考虑太多异常处理，不调用百度API时，基本没出过什么错，但是调用API时偶尔会出错，查了一下，也不是API哪里的问题，在提取页面后面加了个<code>print()</code>想看输出了什么，就没出错了，没搞清楚…</li>
+</ul>
+<h2 id="生成的热力图："><a href="#生成的热力图：" class="headerlink" title="生成的热力图："></a>生成的热力图：</h2><p>调整了一下地图样式</p>
+<p><img src="/2018/06/08/second-hand-house-spider/4.jpg" alt="4"></p>
+<p><img src="/2018/06/08/second-hand-house-spider/5.jpg" alt="5"></p>
+<p><img src="/2018/06/08/second-hand-house-spider/6.jpg" alt="6"></p>
+<p>最后来一张四区的集合图，北京真（tm）大： </p>
+<p><img src="/2018/06/08/second-hand-house-spider/1526450752709.png" alt="1526450752709"></p>
+<p>关于信息的提取还是很有必要的，比如，我之前一直在西二环某传统行业工作，西二环房价那是杠杠的贵，那时一直感觉西南二环好偏僻，直到17年有一天，西南二环某盘从五万，半年直接翻了一倍，才发现还是自己太无知….最后还是那句：侠之大者，为国接盘。 </p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/requests/" rel="tag"># requests</a>
+          
+            <a href="/tags/bs4/" rel="tag"># bs4</a>
+          
+            <a href="/tags/re/" rel="tag"># re</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/02/WAV格式音频学习/" rel="next" title="WAV格式音频学习">
+                <i class="fa fa-chevron-left"></i> WAV格式音频学习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/17/冒泡排序可视化/" rel="prev" title="冒泡排序可视化">
+                冒泡排序可视化 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -350,6 +555,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -370,8 +582,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -435,6 +656,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#链家网url结构分析："><span class="nav-number">1.</span> <span class="nav-text">链家网url结构分析：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#具体实现："><span class="nav-number">2.</span> <span class="nav-text">具体实现：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的问题"><span class="nav-number">3.</span> <span class="nav-text">遇到的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成的热力图："><span class="nav-number">4.</span> <span class="nav-text">生成的热力图：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -568,6 +805,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

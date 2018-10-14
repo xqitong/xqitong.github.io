@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="音频," />
+  <meta name="keywords" content="排序,动画," />
 
 
 
@@ -86,22 +86,21 @@
 
 
 
-<meta name="description" content="以前的整理的一篇文章。 周末没事，在家用pyaudio捣鼓了一下wav的读入，播放，与频谱分析。 正常人听觉的频率范围大约在20Hz~20kHz之间。为了保证声音不失真，采样频率应该在40kHz左右。常用的音频采样频率有8kHz、11.025kHz、22.05kHz、16kHz、37.8kHz、44.1kHz、48kHz等，如果采用更高的采样频率，还可以达到DVD的音质。 先上两个链接： 比特率：">
-<meta name="keywords" content="音频">
+<meta name="description" content="闲着没事，做了一个冒泡排序的可视化小程序，新人一枚，做的不好，还请各位大神轻拍。 排序简单，主要是如何将排序的过程动图表示出来，用到了matplotlib的pyplot和animation模块。 在matplotlib作图中，比较常用的是matplotlib.pyplot模块，这个模块有非常多的属性和方法，简要列举下这次用到的方法：   matplotlib.pyplot.subplots(nro">
+<meta name="keywords" content="排序,动画">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WAV格式音频学习">
-<meta property="og:url" content="http://yoursite.com/2018/05/14/WAV格式音频学习/index.html">
+<meta property="og:title" content="冒泡排序可视化">
+<meta property="og:url" content="http://yoursite.com/2018/06/17/冒泡排序可视化/index.html">
 <meta property="og:site_name" content="QT&#39;s blog">
-<meta property="og:description" content="以前的整理的一篇文章。 周末没事，在家用pyaudio捣鼓了一下wav的读入，播放，与频谱分析。 正常人听觉的频率范围大约在20Hz~20kHz之间。为了保证声音不失真，采样频率应该在40kHz左右。常用的音频采样频率有8kHz、11.025kHz、22.05kHz、16kHz、37.8kHz、44.1kHz、48kHz等，如果采用更高的采样频率，还可以达到DVD的音质。 先上两个链接： 比特率：">
+<meta property="og:description" content="闲着没事，做了一个冒泡排序的可视化小程序，新人一枚，做的不好，还请各位大神轻拍。 排序简单，主要是如何将排序的过程动图表示出来，用到了matplotlib的pyplot和animation模块。 在matplotlib作图中，比较常用的是matplotlib.pyplot模块，这个模块有非常多的属性和方法，简要列举下这次用到的方法：   matplotlib.pyplot.subplots(nro">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/05/14/WAV格式音频学习/20160818100151414.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/05/14/WAV格式音频学习/20180325182321778.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/05/14/WAV格式音频学习/20180325212300562.jpg">
-<meta property="og:updated_time" content="2018-05-14T08:07:16.768Z">
+<meta property="og:image" content="http://yoursite.com/2018/06/17/冒泡排序可视化/sin.gif">
+<meta property="og:image" content="http://yoursite.com/2018/06/17/冒泡排序可视化/bs.gif">
+<meta property="og:updated_time" content="2018-10-14T22:43:24.060Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WAV格式音频学习">
-<meta name="twitter:description" content="以前的整理的一篇文章。 周末没事，在家用pyaudio捣鼓了一下wav的读入，播放，与频谱分析。 正常人听觉的频率范围大约在20Hz~20kHz之间。为了保证声音不失真，采样频率应该在40kHz左右。常用的音频采样频率有8kHz、11.025kHz、22.05kHz、16kHz、37.8kHz、44.1kHz、48kHz等，如果采用更高的采样频率，还可以达到DVD的音质。 先上两个链接： 比特率：">
-<meta name="twitter:image" content="http://yoursite.com/2018/05/14/WAV格式音频学习/20160818100151414.jpg">
+<meta name="twitter:title" content="冒泡排序可视化">
+<meta name="twitter:description" content="闲着没事，做了一个冒泡排序的可视化小程序，新人一枚，做的不好，还请各位大神轻拍。 排序简单，主要是如何将排序的过程动图表示出来，用到了matplotlib的pyplot和animation模块。 在matplotlib作图中，比较常用的是matplotlib.pyplot模块，这个模块有非常多的属性和方法，简要列举下这次用到的方法：   matplotlib.pyplot.subplots(nro">
+<meta name="twitter:image" content="http://yoursite.com/2018/06/17/冒泡排序可视化/sin.gif">
 
 
 
@@ -131,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/14/WAV格式音频学习/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/17/冒泡排序可视化/"/>
 
 
 
 
 
-  <title>WAV格式音频学习 | QT's blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>冒泡排序可视化 | QT's blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -318,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/14/WAV格式音频学习/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/冒泡排序可视化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="QT">
@@ -335,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">WAV格式音频学习</h1>
+          <h1 class="post-title" itemprop="name headline">冒泡排序可视化</h1>
         
 
         <div class="post-meta">
@@ -347,8 +346,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-14T00:17:57+08:00">
-                2018-05-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-17T16:50:09+08:00">
+                2018-06-17
               </time>
             
 
@@ -370,8 +369,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
+                  <a href="/categories/python模块/" itemprop="url" rel="index">
+                    <span itemprop="name">python模块</span>
                   </a>
                 </span>
 
@@ -388,8 +387,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/05/14/WAV格式音频学习/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/14/WAV格式音频学习/" itemprop="commentCount"></span>
+                <a href="/2018/06/17/冒泡排序可视化/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/06/17/冒泡排序可视化/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -417,48 +416,47 @@
       
 
       
-        <p>以前的整理的一篇文章。</p>
-<p>周末没事，在家用pyaudio捣鼓了一下wav的读入，播放，与频谱分析。</p>
-<p>正常人听觉的频率范围大约在20Hz~20kHz之间。为了保证声音不失真，采样频率应该在40kHz左右。常用的音频采样频率有8kHz、11.025kHz、22.05kHz、16kHz、37.8kHz、44.1kHz、48kHz等，如果采用更高的采样频率，还可以达到DVD的音质。</p>
-<p>先上两个链接：</p>
-<p>比特率：<a href="https://baike.baidu.com/item/%E6%AF%94%E7%89%B9%E7%8E%87/1022775?fr=aladdin" target="_blank" rel="noopener">https://baike.baidu.com/item/%E6%AF%94%E7%89%B9%E7%8E%87/1022775?fr=aladdin</a></p>
-<p>PCM编码：<a href="https://baike.baidu.com/item/pcm%E7%BC%96%E7%A0%81/10865033?fr=aladdin" target="_blank" rel="noopener">https://baike.baidu.com/item/pcm%E7%BC%96%E7%A0%81/10865033?fr=aladdin</a></p>
-<p>摘一些出来学习：</p>
-<p>音频 800 bps – 能够分辨的语音所需最低码率（需使用专用的FS-1015语音编解码器） 8 kbps —电话质量（使用语音编码） 8-500 kbps –Ogg Vorbis和MPEG1 Player1/2/3中使用的有损音频模式 500 kbps–1.4 Mbps —44.1KHz的无损音频，解码器为FLAC Audio,WavPack或Monkey’s Audio 1411.2 - 2822.4 Kbps —脉冲编码调制(PCM)声音格式CD光碟的数字音频 5644.8 kbps —SACD使用的Direct Stream Digital格式 </p>
-<p>码率计算公式:<br>基本的算法是：【码率】（kbps)=【文件大小】（字节）X8/【时间】（秒）*1000<br>音频文件专用算法：【比特率】（kbps)=【量化采样点】（kHz）×【位深】（bit/采样点）×【声道数量】（一般为2）</p>
-<p>结论：</p>
-<p>1.一个采样率为44.1KHz，采样大小为16bit，双声道的PCM编码的WAV文件，</p>
-<p><a href="https://baike.baidu.com/item/%E6%AF%94%E7%89%B9" target="_blank" rel="noopener">比特率</a>= 44.1K×16×2 =1411.2 Kbps。</p>
-<p>我们常见的Audio CD就采用了PCM编码，一张光盘的容量只能容纳72分钟的音乐信息，而常见的wav歌曲大部分是PCM格式的。</p>
-<p>2.数据了计算：我找了首刘惜君-我很快乐</p>
-<p>数据量=（采样频率×采样位数bit×声道数×时间）/8=[44.1×1000×16×2×（3×60+33）] /（8×1024×1024） =37573200B约35.83MB</p>
-<p>算出来的大小与歌曲也一样，大小：35.8 MB (37,643,974 字节)；占用空间：35.9 MB (37,650,432 字节)</p>
-<p>3.一帧PCM是：2048次采样组成的（网上搜到的），但是我自己用数据算了下，感觉不对，先写下面，有懂的帮指导一下：</p>
-<p>采样率framerate：44100Hz<br>帧数nframes:9410940<br>时长time:213s</p>
-<p>数据量：37573200Byte</p>
-<p>帧数nframes/时长time=9410940/213=44182帧/秒，约等与采样率，怎么回事，我算错了么。。。汗</p>
-<p>如果按2048次计算，一帧时间播放时间 = 2048 * 1000000/44100= 46.4ms，一帧的解码时间须控制在46.4ms内。</p>
-<p>4.PCM格式</p>
-<p>   PCM(Pulse Code Modulation)也被称为 脉码编码调制。PCM中的声音数据没有被压缩，如果是单声道的文件，采样数据按时间的先后顺序依次存入。(它的基本组织单位是BYTE(8bit)或WORD(16bit))</p>
-<p><img src="/2018/05/14/WAV格式音频学习/20160818100151414.jpg" alt="20160818100151414"></p>
-<p>样本大小      数据格式        最小值    最大值</p>
-<p> 8位PCM    unsigned int         0       225</p>
-<p>16位PCM      int                -32767    32767</p>
-<p>4.文件格式 </p>
-<p><img src="/2018/05/14/WAV格式音频学习/20180325182321778.jpg" alt="20180325182321778"></p>
-<p>5.代码 </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> wave  </span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np  </span><br><span class="line"><span class="keyword">from</span> pyaudio <span class="keyword">import</span> PyAudio  </span><br><span class="line"><span class="keyword">import</span> pylab  </span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt  </span><br><span class="line"><span class="comment">#定义数据流块  </span></span><br><span class="line">chunk = <span class="number">2048</span>  </span><br><span class="line"><span class="comment">#只读方式打开wav文件  </span></span><br><span class="line">f = wave.open(<span class="string">"that.wav"</span>,<span class="string">"rb"</span>)  </span><br><span class="line"><span class="comment">#创建PyAudio对象:  </span></span><br><span class="line">p = PyAudio()  </span><br><span class="line"><span class="comment">#打开数据流  </span></span><br><span class="line">stream = p.open(format = p.get_format_from_width(f.getsampwidth()),  </span><br><span class="line">channels = f.getnchannels(),  </span><br><span class="line">rate = f.getframerate(),  </span><br><span class="line">output = <span class="keyword">True</span>)  </span><br><span class="line"><span class="comment">#读取数据  </span></span><br><span class="line"><span class="comment"># _wave_params(nchannels=2, sampwidth=2, framerate=44100, nframes=9410940, comptype='NONE', compname='not compressed')  </span></span><br><span class="line"><span class="comment">#(声道数，采样精度，采样率，帧数，......)  </span></span><br><span class="line">params = f.getparams()  </span><br><span class="line">print(params)  </span><br><span class="line">nchannels,sampwidth,framerate,nframes = params[<span class="number">0</span>],params[<span class="number">1</span>],params[<span class="number">2</span>],params[<span class="number">3</span>]  </span><br><span class="line"><span class="comment">#读取完整的帧数据到datawav中，这是一个string类型的数据  </span></span><br><span class="line">datawav = f.readframes(nframes)  </span><br><span class="line"><span class="comment">#将f关掉  </span></span><br><span class="line">f.close()  </span><br><span class="line"><span class="comment"># with open("t.txt","w") as ftxt:  </span></span><br><span class="line"><span class="comment">#  </span></span><br><span class="line"><span class="comment">#     ftxt.writelines(str(datawav[:10000]))  </span></span><br><span class="line"><span class="comment">#  </span></span><br><span class="line"><span class="comment"># ftxt.close()  </span></span><br><span class="line"><span class="comment">#将波形数据转换为数组  </span></span><br><span class="line"><span class="comment"># A new 1-D array initialized from raw binary or text data in a string.  </span></span><br><span class="line">datause = np.fromstring(datawav, dtype=np.short)  </span><br><span class="line"><span class="comment">#将wave_data数组改为2列，行数自动匹配。在修改shape的属性时，需使得数组的总长度不变。  </span></span><br><span class="line">datause.shape = <span class="number">-1</span>, <span class="number">2</span>  </span><br><span class="line"><span class="comment">#将数组转置，分别得到两个声道的序列  </span></span><br><span class="line">datause = datause.T  </span><br><span class="line"><span class="comment">#time 得到每帧的绝对时间，也是一个数组，datause[0]datause[1]配对形成系列点坐标  </span></span><br><span class="line"><span class="comment">#音频帧的播放时长 = 一个帧对应的采样点个数 / 采样频率(单位为s)  </span></span><br><span class="line"><span class="comment"># 则，当前一帧的播放时间 = 2048* 1000000/44100= 46.4ms  </span></span><br><span class="line">time = np.arange(<span class="number">0</span>, nframes) * (<span class="number">1.0</span>/framerate) <span class="comment">##* chunk  </span></span><br><span class="line">  </span><br><span class="line"><span class="comment">#采样点数，修改采样点数和起始位置进行不同位置和长度的音频波形分析  </span></span><br><span class="line"><span class="comment">#根据采样定理知采样频率要大于信号频率2倍，所以这里设置采样频率为44100赫兹  </span></span><br><span class="line">N = <span class="number">44100</span>       <span class="comment">#每秒采样次数  </span></span><br><span class="line">start = <span class="number">100</span> * N <span class="comment">#开始采样位置  </span></span><br><span class="line">nsamp = <span class="number">10</span> * N  <span class="comment">#采样区间时间长度  </span></span><br><span class="line">wavedata = datause[<span class="number">0</span>][start:start+nsamp]  </span><br><span class="line">x=np.linspace(<span class="number">0</span>,<span class="number">1</span>,nsamp)  </span><br><span class="line">yy = np.fft.fft(wavedata)  </span><br><span class="line">yf = abs(yy)      <span class="comment">#取绝对值  </span></span><br><span class="line">yf1 = yf/nsamp    <span class="comment">#归一化处理  </span></span><br><span class="line">yf2 = yf1[range(int(nsamp//<span class="number">2</span>))]  <span class="comment">#由于对称性，只取一半区间  </span></span><br><span class="line">fre = np.arange(len(yy))  </span><br><span class="line">fre2 = fre[range(int(len(x)//<span class="number">2</span>))]  <span class="comment">#取一半区间  </span></span><br><span class="line"><span class="comment">##Original wave  </span></span><br><span class="line">plt.subplot(<span class="number">221</span>)  </span><br><span class="line">plt.plot(x[<span class="number">0</span>:nsamp//<span class="number">50</span>],wavedata[<span class="number">0</span>:nsamp//<span class="number">50</span>])  </span><br><span class="line">plt.title(<span class="string">'Original wave'</span>)  </span><br><span class="line"><span class="comment">##绘制频谱图  </span></span><br><span class="line">plt.subplot(<span class="number">222</span>)  </span><br><span class="line">plt.plot(fre,yf,<span class="string">'r'</span>)  </span><br><span class="line">plt.title(<span class="string">'FFT of Mixed wave(two sides frequency range)'</span>,fontsize=<span class="number">7</span>,color=<span class="string">'#7A378B'</span>)  </span><br><span class="line"><span class="comment">#归一化  </span></span><br><span class="line">plt.subplot(<span class="number">223</span>)  </span><br><span class="line">plt.plot(fre,yf1,<span class="string">'g'</span>)  </span><br><span class="line">plt.title(<span class="string">'FFT of Mixed wave(normalization)'</span>,fontsize=<span class="number">9</span>,color=<span class="string">'r'</span>)  </span><br><span class="line"><span class="comment">#一半  </span></span><br><span class="line">plt.subplot(<span class="number">224</span>)  </span><br><span class="line">plt.plot(fre2,yf2,<span class="string">'b'</span>)  </span><br><span class="line">plt.title(<span class="string">'FFT of Mixed wave'</span>,fontsize=<span class="number">10</span>,color=<span class="string">'#F08080'</span>)  </span><br><span class="line">plt.show()  </span><br><span class="line">stream.write(datawav[<span class="number">4</span>*start:<span class="number">4</span>*start+<span class="number">4</span>*nsamp])<span class="comment">##length datawav 37643760;length datause 18821880;length wavedata 441000  </span></span><br><span class="line"><span class="comment">##注意，四个字节为一个采样点  </span></span><br><span class="line">  </span><br><span class="line"><span class="comment"># plt.title("Night.wav's Frames")  </span></span><br><span class="line"><span class="comment"># plt.subplot(211)  </span></span><br><span class="line"><span class="comment"># plt.plot(time, datause[0],color = 'green')  </span></span><br><span class="line"><span class="comment"># plt.subplot(212)  </span></span><br><span class="line"><span class="comment"># plt.plot(time, datause[1])  </span></span><br><span class="line"><span class="comment"># plt.show()  </span></span><br><span class="line">  </span><br><span class="line"><span class="comment">#播放  </span></span><br><span class="line"><span class="comment"># while True:  </span></span><br><span class="line"><span class="comment">#     data = f.readframes(chunk)  </span></span><br><span class="line"><span class="comment">#     stream.write(data)  </span></span><br><span class="line"><span class="comment">#     print(data)  </span></span><br><span class="line"><span class="comment">#     if data == b'':  </span></span><br><span class="line"><span class="comment">#         break  </span></span><br><span class="line">  </span><br><span class="line"><span class="comment">#停止数据流  </span></span><br><span class="line">stream.stop_stream()  </span><br><span class="line">stream.close()  </span><br><span class="line"><span class="comment">#关闭 PyAudio  </span></span><br><span class="line">p.terminate()</span><br></pre></td></tr></table></figure>
-<p>我最后验证了时间ok，start相当于从100s开始播放了10s，上面输出的与直接用播放器放出来是同一段 。</p>
-<p>6.频谱分析图 </p>
-<p><img src="/2018/05/14/WAV格式音频学习/20180325212300562.jpg" alt="20180325212300562"></p>
-<p>7.歌曲地址 </p>
-<p><a href="https://pan.baidu.com/s/1hmeXmfUxQVYfBd0EGKGCYQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1hmeXmfUxQVYfBd0EGKGCYQ</a></p>
-<p>参考：</p>
-<p><a href="https://www.cnblogs.com/lzxwalex/p/6922099.html" target="_blank" rel="noopener">https://www.cnblogs.com/lzxwalex/p/6922099.html</a></p>
-<p><a href="https://www.cnblogs.com/lidabo/p/3729615.html" target="_blank" rel="noopener">https://www.cnblogs.com/lidabo/p/3729615.html</a></p>
-<p><a href="https://www.cnblogs.com/lzxwalex/p/6922099.html" target="_blank" rel="noopener">https://www.cnblogs.com/lzxwalex/p/6922099.html</a></p>
-<p><a href="http://blog.sina.com.cn/s/blog_40793e970102w3m2.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_40793e970102w3m2.html</a></p>
-<p><a href="https://blog.csdn.net/pi9nc/article/details/12570841" target="_blank" rel="noopener">https://blog.csdn.net/pi9nc/article/details/12570841</a></p>
+        <p>闲着没事，做了一个冒泡排序的可视化小程序，新人一枚，做的不好，还请各位大神轻拍。</p>
+<p>排序简单，主要是如何将排序的过程动图表示出来，用到了<code>matplotlib</code>的<code>pyplot</code>和<code>animation模块</code>。</p>
+<p>在<code>matplotlib</code>作图中，比较常用的是<code>matplotlib.pyplot</code>模块，这个模块有非常多的属性和方法，简要列举下这次用到的方法：</p>
+<p>  <code>matplotlib.pyplot.subplots(nrows=1, ncols=1, sharex=False, sharey=False, squeeze=True, subplot_kw=None, gridspec_kw=None, **fig_kw)</code> </p>
+<p>返回</p>
+<ul>
+<li><strong>fig</strong> : <a href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure" target="_blank" rel="noopener"><code>matplotlib.figure.Figure</code></a> object</li>
+<li><strong>ax</strong> : Axes object or array of Axes objects.</li>
+</ul>
+<p>先举个例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> matplotlib.animation <span class="keyword">import</span> FuncAnimation</span><br><span class="line"></span><br><span class="line">fig, ax = plt.subplots()</span><br><span class="line">xdata, ydata = [], []</span><br><span class="line">ln, = plt.plot([], [], <span class="string">'r-'</span>, animated=<span class="keyword">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">init</span><span class="params">()</span>:</span></span><br><span class="line">    ax.set_xlim(<span class="number">0</span>, <span class="number">2</span>*np.pi)</span><br><span class="line">    ax.set_ylim(<span class="number">-1</span>, <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> ln,</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">update</span><span class="params">(frame)</span>:</span></span><br><span class="line">    xdata.append(frame)</span><br><span class="line">    ydata.append(np.sin(frame))</span><br><span class="line">    ln.set_data(xdata, ydata)</span><br><span class="line">    <span class="keyword">return</span> ln,</span><br><span class="line"></span><br><span class="line">ani = FuncAnimation(fig, update, frames=np.linspace(<span class="number">0</span>, <span class="number">2</span>*np.pi, <span class="number">128</span>),</span><br><span class="line">                    init_func=init, blit=<span class="keyword">True</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/06/17/冒泡排序可视化/sin.gif" alt="sin"></p>
+<p>先看一下<code>animation.FuncAnimation</code>:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">matplotlib</span>.<span class="title">animation</span>.<span class="title">FuncAnimation</span><span class="params">(fig, func, frames=None, init_func=None, fargs=None, save_count=None, **kwargs)</span></span></span><br></pre></td></tr></table></figure>
+<p>其实就是搭建一个动画的骨架，</p>
+<ul>
+<li><strong>fig</strong> : matplotlib.figure.Figure ，就是画图的框子</li>
+<li><strong>func</strong> : callable ，就是每一帧需要更新函数，需返回<code>plt.plot</code>或者其它形式的画图对象</li>
+<li><strong>frames</strong> : iterable, int, generator function, or None, optional ，就是一个可迭代对象，每一次为传给<code>func</code>去生产当前帧</li>
+</ul>
+<p>其它就不说了，参照<a href="https://matplotlib.org/api/_as_gen/matplotlib.animation.FuncAnimation.html#matplotlib.animation.FuncAnimation" target="_blank" rel="noopener">文档</a>理解。</p>
+<p>所以动画的过程就是：</p>
+<ol>
+<li>先把需要生产动画的骨架搭好，比如所需的数据，需要画图的函数，更新的函数对象等等</li>
+<li><code>FuncAnimation</code>方法主要是与<code>update</code>函数做交互，将<code>frames</code>参数对应的数据逐条传进<code>update</code>函数，再由<code>update</code>函数返回的图形覆盖<code>FuncAnimation</code>原先的图形，interval为每次更新的时间间隔，还有其他一些参数如blit=True控制图形精细，当界面较多子图时，为True可以使得看起来不会太卡，关键是frames参数 。</li>
+<li><code>plt.show()</code>显示出来</li>
+</ol>
+<p>所以对于排序过程可视化大概可分为：</p>
+<ol>
+<li>对排序数组进行排序，记录每次循环迭代的相对位置，并将其存储</li>
+<li>为了观看直观，对于当前比较对象和其它对象设置不同的颜色，并与当前数组打包</li>
+<li>将所有生产的状态数组（每组包含颜色信息）传递给<code>FuncAnimation</code>，<code>update</code>将数据解包，得到画柱状图的<code>height</code>和<code>color</code>，<code>update</code>返回<code>plt.bar</code>，生成当前帧</li>
+<li>显示或存储动图</li>
+</ol>
+<p><img src="/2018/06/17/冒泡排序可视化/bs.gif" alt="bs"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">setcolor</span><span class="params">(i_idx,m_idx,lst)</span>:</span> <span class="comment">#设置颜色</span></span><br><span class="line">    res=[]</span><br><span class="line">    <span class="keyword">for</span> i, ele <span class="keyword">in</span> enumerate(lst):</span><br><span class="line">        lev = <span class="string">'#95a5a6'</span><span class="comment">#设置其它颜色</span></span><br><span class="line">        <span class="keyword">if</span> i == i_idx:</span><br><span class="line">            lev = <span class="string">'#e74c3c'</span> <span class="comment">#当前对象</span></span><br><span class="line">        <span class="keyword">elif</span> i == m_idx:</span><br><span class="line">            lev = <span class="string">'#2ecc71'</span> <span class="comment">#比较对象</span></span><br><span class="line">        res.append((ele,lev))</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bubs</span><span class="params">(lst)</span>:</span> <span class="comment">#排序并将状态存储</span></span><br><span class="line">    res=[]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(lst)<span class="number">-1</span>):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(len(lst)-i<span class="number">-1</span>):</span><br><span class="line">            res.append(setcolor(j,j+<span class="number">1</span>,lst))</span><br><span class="line">            <span class="keyword">if</span> lst[j+<span class="number">1</span>] &lt; lst[j]:</span><br><span class="line">                lst[j],lst[j+<span class="number">1</span>] = lst[j+<span class="number">1</span>],lst[j]</span><br><span class="line">            res.append(setcolor(j,j+<span class="number">1</span>,lst))</span><br><span class="line">    res.append(setcolor(<span class="number">-1</span>,<span class="number">-1</span>,lst))</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">update</span><span class="params">(res)</span>:</span> <span class="comment">#更新函数</span></span><br><span class="line">    pcols=[]</span><br><span class="line">    plsts=[]</span><br><span class="line">    <span class="keyword">for</span> elenum,elecol <span class="keyword">in</span> res:</span><br><span class="line">        plsts.append(elenum)</span><br><span class="line">        pcols.append(elecol)</span><br><span class="line">    plt.cla()<span class="comment">#清除残影</span></span><br><span class="line">    <span class="keyword">return</span> plt.bar(list(range(len(plsts))),plsts,color=pcols)</span><br></pre></td></tr></table></figure>
+<p>代码放这：<br><a href="https://github.com/xqitong/bubblesort_vi" target="_blank" rel="noopener">https://github.com/xqitong/bubblesort_vi</a></p>
+<p>参考链接：</p>
+<p><a href="https://blog.csdn.net/sailist/article/details/79502007#输出mp4格式的视频" target="_blank" rel="noopener">https://blog.csdn.net/sailist/article/details/79502007#输出mp4格式的视频</a></p>
+<p><a href="https://blog.csdn.net/yc_1993/article/details/54933751" target="_blank" rel="noopener">https://blog.csdn.net/yc_1993/article/details/54933751</a></p>
+<p><a href="https://blog.csdn.net/u013180339/article/details/77002254" target="_blank" rel="noopener">https://blog.csdn.net/u013180339/article/details/77002254</a></p>
 
       
     </div>
@@ -476,7 +474,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/音频/" rel="tag"># 音频</a>
+            <a href="/tags/排序/" rel="tag"># 排序</a>
+          
+            <a href="/tags/动画/" rel="tag"># 动画</a>
           
         </div>
       
@@ -489,8 +489,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/14/itertools模块总结/" rel="next" title="itertools模块总结">
-                <i class="fa fa-chevron-left"></i> itertools模块总结
+              <a href="/2018/06/08/second-hand-house-spider/" rel="next" title="second-hand-house-spider">
+                <i class="fa fa-chevron-left"></i> second-hand-house-spider
               </a>
             
           </div>
@@ -499,8 +499,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/16/second-hand-house-spider/" rel="prev" title="second-hand-house-spider">
-                second-hand-house-spider <i class="fa fa-chevron-right"></i>
+              <a href="/2018/07/05/斐波那契数列的几种写法/" rel="prev" title="斐波那契数列的几种写法">
+                斐波那契数列的几种写法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
